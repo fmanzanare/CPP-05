@@ -6,19 +6,19 @@
 /*   By: fmanzana <fmanzana@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 13:17:08 by fmanzana          #+#    #+#             */
-/*   Updated: 2023/07/16 13:39:58 by fmanzana         ###   ########.fr       */
+/*   Updated: 2023/07/16 17:05:19 by fmanzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-class Form::GradeTooHighException {
+class Form::GradeTooHighException : public std::exception {
 	virtual const char *what() const throw() {
 		return ("GradeTooHighException: The highest grade is 1\n");
 	}
 };
 
-class Form::GradeTooLowException {
+class Form::GradeTooLowException : public std::exception {
 	virtual const char *what() const throw() {
 		return ("GradeTooLowException: The lowest grade is 150\n");
 	}
