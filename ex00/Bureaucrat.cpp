@@ -6,19 +6,31 @@
 /*   By: fmanzana <fmanzana@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 17:27:29 by fmanzana          #+#    #+#             */
-/*   Updated: 2023/07/07 17:47:45 by fmanzana         ###   ########.fr       */
+/*   Updated: 2023/07/16 12:35:46 by fmanzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
+class Bureaucrat::GradeTooHighException : public std::exception {
+	virtual const char *what() const throw() {
+		return ("GradeTooHighException: The highest grade is 1\n");
+	}
+};
+
+class Bureaucrat::GradeTooLowException : public std::exception {
+	virtual const char *what() const throw() {
+		return ("GradeTooLowException: The lowest grade is 150\n");
+	}
+};
+
 Bureaucrat::Bureaucrat() : _name("Noname"), _grade(1) {}
 
 Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name) {
 	if (grade < 1) {
-		throw std::out_of_range("GradeTooHighException: The maximum grade is 1.");
+		throw GradeTooHighException();
 	} else if (grade > 150) {
-		throw std::out_of_range("GradeTooLowException: The minimum grade is 150.");
+		throw GradeTooLowException();
 	} else {
 		this->_grade = grade;
 	}
@@ -36,17 +48,17 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &cp) {
 	return (*this);
 }
 
-std::string const Bureaucrat::getName() const {
+std::string Bureaucrat::getName() const {
 	return (this->_name);
 }
 
-int Bureaucrat::getGrade() {
+int Bureaucrat::getGrade() const {
 	return (this->_grade);
 }
 
 void Bureaucrat::incrementGrade() {
 	if (this->_grade - 1 < 1) {
-		throw std::out_of_range("GradeTooHighException: The Bureaucrat already has the maximum grade.");
+		throw GradeTooHighException();
 	} else {
 		this->_grade--; // 1 is higher than 150. Both are the limits.
 	}
@@ -54,8 +66,13 @@ void Bureaucrat::incrementGrade() {
 
 void Bureaucrat::decrementGrade() {
 	if (this->_grade + 1 > 150) {
-		throw std::out_of_range("GradeTooLowException: The Bureaucrat already has the minimum grade.");
+		throw GradeTooLowException();
 	} else {
 		this->_grade++; // 1 is higher than 150. Both are the limits.
 	}
+}
+
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &b) {
+	os << b.getName() << ", bureaucrat grade " << b.getGrade() << std::endl;
+	return (os);
 }
