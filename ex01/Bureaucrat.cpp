@@ -6,7 +6,7 @@
 /*   By: fmanzana <fmanzana@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 17:27:29 by fmanzana          #+#    #+#             */
-/*   Updated: 2023/07/16 13:41:22 by fmanzana         ###   ########.fr       */
+/*   Updated: 2023/07/16 14:04:33 by fmanzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,13 @@ void Bureaucrat::decrementGrade() {
 	}
 }
 
-void Bureaucrat::signForm(const Form &form) {
-	if (form.getSignGrade() < this->_grade)
-		std::cout << this->_name << "couldn't sign" << form << "because grade is too low." << std::endl;
-	else
-		std::cout << this->_name << " signed the following form:\n" << form << std::endl;
+void Bureaucrat::signForm(Form &form) {
+	try {
+		form.beSigned(*this);
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
+	} catch(...) {
+		std::cout << this->_name << " couldn't sign " << form.getName() << " because grade is too low." << std::endl;
+	}
 }
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &b) {

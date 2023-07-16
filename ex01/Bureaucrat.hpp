@@ -6,7 +6,7 @@
 /*   By: fmanzana <fmanzana@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 17:24:16 by fmanzana          #+#    #+#             */
-/*   Updated: 2023/07/16 13:10:32 by fmanzana         ###   ########.fr       */
+/*   Updated: 2023/07/16 13:58:24 by fmanzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class Bureaucrat {
 
 		void incrementGrade();
 		void decrementGrade();
-		void signForm(const Form &form);
+		void signForm(Form &form);
 
 		class GradeTooHighException;
 		class GradeTooLowException;
