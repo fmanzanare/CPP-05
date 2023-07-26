@@ -6,7 +6,7 @@
 /*   By: fmanzana <fmanzana@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 17:27:29 by fmanzana          #+#    #+#             */
-/*   Updated: 2023/07/16 18:44:43 by fmanzana         ###   ########.fr       */
+/*   Updated: 2023/07/26 13:57:09 by fmanzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void Bureaucrat::signForm(AForm &form) {
 	}
 }
 
-void Bureaucrat::executedForm(const AForm &form) {
+void Bureaucrat::executeForm(const AForm &form) {
 	try {
 		form.execute(*this);
 		std::cout << this->_name << " executed " << form.getName() << std::endl;

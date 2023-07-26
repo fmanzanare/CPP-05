@@ -6,7 +6,7 @@
 /*   By: fmanzana <fmanzana@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 18:40:10 by fmanzana          #+#    #+#             */
-/*   Updated: 2023/07/26 13:53:28 by fmanzana         ###   ########.fr       */
+/*   Updated: 2023/07/26 13:56:25 by fmanzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main(void) {
 	}
 
 	try {
-		s1.execute(b4);
+		b4.executeForm(s1);
 	} catch (std::exception &e) {
 		std::cout << "s1 could not be executed because " << e.what() << std::endl;
 	}
@@ -43,7 +43,7 @@ int main(void) {
 	}
 
 	try {
-		r1.execute(b4);
+		b4.executeForm(r1);
 	} catch (std::exception &e) {
 		std::cout << "r1 could not be executed because " << e.what() << std::endl;
 	}
@@ -55,7 +55,7 @@ int main(void) {
 	}
 
 	try {
-		p1.execute(b1);
+		b1.executeForm(p1);
 	} catch (std::exception &e) {
 		std::cout << "p1 could not be executed because " << e.what() << std::endl;
 	}
