@@ -6,7 +6,7 @@
 /*   By: fmanzana <fmanzana@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 18:35:58 by fmanzana          #+#    #+#             */
-/*   Updated: 2023/07/16 18:40:00 by fmanzana         ###   ########.fr       */
+/*   Updated: 2023/07/26 13:48:19 by fmanzana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 
 void PresidentialPardonForm::execute(const Bureaucrat &executor) const {
 	AForm::execute(executor);
-	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox";
+	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }

@@ -6,7 +6,7 @@
 #    By: fmanzana <fmanzana@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/16 16:57:14 by fmanzana          #+#    #+#              #
-#    Updated: 2023/07/16 17:02:18 by fmanzana         ###   ########.fr        #
+#    Updated: 2023/07/26 13:45:04 by fmanzana         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRCS =	Bureaucrat.cpp\
 		AForm.cpp\
 		ShrubberyCreationForm.cpp\
 		RobotomyRequestForm.cpp\
-		PresidentialPardonForm.cpp
+		PresidentialPardonForm.cpp\
+		main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
